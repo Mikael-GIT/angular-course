@@ -6,10 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  nome = "";
-  
+  nome = "Mikael";
 
-  adicionar(nomeInput: any){
-    this.nome = nomeInput;
+
+  adicionar(){
+    console.log(`adicionando ${this.nome}`);
+
+    const numero = Math.round(Math.random() * 100);
+    this.nome = "João " + numero;
   }
 }
