@@ -6,15 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  ultimoId: number = 0;
   nome = "Mikael";
   adicionado = true;
-
+  funcionarios: any [] = [];
 
   adicionar(){
     console.log(`adicionando ${this.nome}`);
-
-    const numero = Math.round(Math.random() * 100);
-    this.nome = "João " + numero;
     this.adicionado = false;
+
+    this.funcionarios.push({
+      id: ++this.ultimoId,
+      nome: this.nome
+    });
   }
 }
