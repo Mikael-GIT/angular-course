@@ -7,9 +7,12 @@
 
   <div class="form-group">
     <label>Nome</label>
-    <input type="text" class="form-control" (input)="alterarNome($event)">
+    <input type="text" class="form-control" #nomeInput> <!-- Variável por referência, podemos
+    utilizar esta variável #nomeInput em outros cantos do html, mas não podemos usar no componente. -->
   </div>
 
-  <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button>
+  <!-- Neste botão estamos pegando a variável por referência, no caso o que é digitado no campo input
+  e passando como parâmetro o que foi digita lá no momento em que pressionamos o botão. -->
+  <button type="button" class="btn btn-primary" (click)="adicionar(nomeInput.value)">Adicionar</button>
 
 </div>
