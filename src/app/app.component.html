@@ -1,28 +1,11 @@
-<!-- <h1> Meu nome é: {{nome}} e tenho {{ 20 + getIdade() }} anos.</h1> -->
+  <!-- Dentro do método aoAdicionar é passado como parâmetro o $evento que é basicamente
+  o que o objeto que foi passado no método emit do emissor de eventos lá no componente de formulário. -->
+  <app-funcionario-form (funcionarioAdicionado)="aoAdicionar($event)"></app-funcionario-form>
 
-<div class="container">
-  <div class="alert alert-primary" [hidden]="adicionado" role="alert"> <!-- Utilizando a diretiva
-  de atributo chamada hidden, neste caso esta div será ocultada em determinada condição, nesta condição
-  a div ficará oculta enquanto adicionado estiver como false. -->
-    Funcionário adicionado: <strong>{{ nome }}</strong>
-  </div>
-
-  <!-- Inicio do formulário-->
-  <div class="form-group">
-    <label>Nome</label>
-    <input type="text" [(ngModel)]="nome" class="form-control" (focus)="adicionado = true">
-  </div>
-  <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button>
-
-  <!-- Inicio dos cards-->
   <div class="row" style="margin-top: 20px">
 
-    <div class="col-2" *ngFor="let funcionario of funcionarios">
-      <div class="card">
-        <img src="https://randomuser.me/api/portraits/men/{{ funcionario.id }}.jpg" class="card-img-top" alt="...">
-        <div class="card-body">{{ funcionario.nome }} </div>
-      </div>
+    <div class="col-2" *ngFor="let f of funcionarios">
+      <app-funcionario-card [funcionario]="f"></app-funcionario-card>
     </div>
 
   </div>
-</div>

@@ -1,0 +1,16 @@
+<!-- <h1> Meu nome é: {{nome}} e tenho {{ 20 + getIdade() }} anos.</h1> -->
+
+<div class="container">
+    <div class="alert alert-primary" [hidden]="adicionado" role="alert"> <!-- Utilizando a diretiva
+    de atributo chamada hidden, neste caso esta div será ocultada em determinada condição, nesta condição
+    a div ficará oculta enquanto adicionado estiver como false. -->
+      Funcionário adicionado: <strong>{{ nome }}</strong>
+    </div>
+  
+    <!-- Inicio do formulário-->
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="nome" class="form-control" (focus)="adicionado = true">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button>
+  
